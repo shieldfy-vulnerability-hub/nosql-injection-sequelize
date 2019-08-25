@@ -1,1 +1,1 @@
-curl http://localhost:8000/user?name[%24gt]=1
+curl http://localhost:8000/api/get_user?name[%24gt]=1

@@ -34,15 +34,22 @@ const User = sequelize.define('users', {
 sequelize
   .sync( { force: true } ) // Force To re-initialize tables on each run
   .then(function (err) {
-    console.log('It worked!');
+    console.log('It worked!'); 
     User.findAll().then(users => {
         if (users.length == 0) {
             // Create a new user
-            User.create({ uid: 1, name: "Doe" }).then(ins => {
+            User.create({ uid: 1, name: "John" }).then(ins => {
               console.log("added user successfuly");
             });
             
-            User.create({ uid: 2, name: "sam" }).then(ins => {
+            User.create({ uid: 2, name: "Samantha" }).then(ins => {
+              console.log("added user successfuly");
+            });
+            User.create({ uid: 1, name: "Jack" }).then(ins => {
+              console.log("added user successfuly");
+            });
+            
+            User.create({ uid: 2, name: "Michael" }).then(ins => {
               console.log("added user successfuly");
             });
         }
@@ -53,11 +60,12 @@ sequelize
 })
 
 
-app.get('/user', (req, res) => {    
-    User.find({ where: {name: req.query.name} }).then(user => {
+app.get('/api/get_user', (req, res) => {    
+    User.findAll({ where: {name: req.query.name} }).then(user => {
+      //console.log(user);
         // project will be the first entry of the Projects table with the title 'aProject' || null
         if (user) {
-          res.json(user.dataValues)
+          res.json(user)
         } else {
           res.end('USER NOT FOUND')
         }
