@@ -19,24 +19,21 @@ sequelize
     console.error('Unable to connect to the database:', err);
 });
 
-
+const User = sequelize.define('users', {
+    // attributes
+    uid: {
+        type: Sequelize.INTEGER,
+        allowNull: false
+    },
+    name: {
+        type: Sequelize.STRING,
+        allowNull: false
+    }
+});
 
 sequelize
   .sync( { force: true } ) // Force To re-initialize tables on each run
   .then(function (err) {
-
-    const User = sequelize.define('users', {
-        // attributes
-        uid: {
-            type: Sequelize.INTEGER,
-            allowNull: false
-        },
-        name: {
-            type: Sequelize.STRING,
-            allowNull: false
-        }
-    });
-
     console.log('It worked!');
     User.findAll().then(users => {
         if (users.length == 0) {
