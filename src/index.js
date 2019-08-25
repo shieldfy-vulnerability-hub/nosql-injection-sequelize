@@ -60,7 +60,7 @@ sequelize
 })
 
 
-app.get('/user', (req, res) => {    
+app.get('/api/get_user', (req, res) => {    
     User.findAll({ where: {name: req.query.name} }).then(user => {
       //console.log(user);
         // project will be the first entry of the Projects table with the title 'aProject' || null

