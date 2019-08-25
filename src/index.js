@@ -53,8 +53,8 @@ sequelize
 })
 
 
-app.get('/', (req, res) => {    
-    User.find({ where: {name: req.query.token} }).then(user => {
+app.get('/user', (req, res) => {    
+    User.find({ where: {name: req.query.name} }).then(user => {
         // project will be the first entry of the Projects table with the title 'aProject' || null
         if (user) {
           res.json(user.dataValues)
